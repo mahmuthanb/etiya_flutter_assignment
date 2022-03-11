@@ -35,27 +35,7 @@ class HomePage extends StatelessWidget {
             FocusManager.instance.primaryFocus!.unfocus();
           }
         },
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
-                style: TextStyle(color: Colors.black),
-              ),
-              OutlinedButton(
-                onPressed: () =>
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text(
-                    "button çalışıyor",
-                  ),
-                  duration: Duration(seconds: 3),
-                )),
-                child: const Text("data data data data"),
-              ),
-            ],
-          ),
-        ),
+        child: Container(),
       ),
     );
   }
