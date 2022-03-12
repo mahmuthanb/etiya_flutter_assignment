@@ -12,7 +12,7 @@ MovieResponseModel _$MovieResponseModelFromJson(Map<String, dynamic> json) =>
       results: (json['results'] as List<dynamic>)
           .map((e) => MovieModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      totalPages: json['total_page'] as int,
+      totalPages: json['total_pages'] as int,
       totalResults: json['total_results'] as int,
     );
 
@@ -20,7 +20,7 @@ Map<String, dynamic> _$MovieResponseModelToJson(MovieResponseModel instance) =>
     <String, dynamic>{
       'page': instance.page,
       'results': instance.results,
-      'total_page': instance.totalPages,
+      'total_pages': instance.totalPages,
       'total_results': instance.totalResults,
     };
 

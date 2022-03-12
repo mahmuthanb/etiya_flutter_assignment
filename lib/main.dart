@@ -1,4 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:etiya_flutter_assignment/controller/cubit/movie_cubit.dart';
+import 'package:etiya_flutter_assignment/controller/network.dart';
 import 'package:etiya_flutter_assignment/data/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,6 +19,7 @@ class EtiyaFlutterAssignment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Connectivity connectivity = Connectivity();
+    final NetworkService networkService = NetworkService();
     return MaterialApp(
       title: 'ETIYA Flutter Assigment',
       theme: lightTheme,
@@ -26,6 +29,9 @@ class EtiyaFlutterAssignment extends StatelessWidget {
           BlocProvider<InternetCubit>(
             create: (context) => InternetCubit(connectivity: connectivity),
           ),
+          BlocProvider<MovieCubit>(
+            create: (context) => MovieCubit(networkService: networkService),
+          )
         ],
         child: BlocBuilder<InternetCubit, InternetState>(
           builder: (context, state) {

@@ -1,5 +1,10 @@
-import 'package:etiya_flutter_assignment/data/constans_data.dart';
+import 'package:etiya_flutter_assignment/controller/cubit/movie_cubit.dart';
+import 'package:etiya_flutter_assignment/data/constants.dart';
+import 'package:etiya_flutter_assignment/view/widgets/movie_card_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../model/movie_model.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -35,7 +40,33 @@ class HomePage extends StatelessWidget {
             FocusManager.instance.primaryFocus!.unfocus();
           }
         },
-        child: Container(),
+        child: BlocBuilder<MovieCubit, MovieState>(builder: (context, state) {
+          final Size size = MediaQuery.of(context).size;
+          if (state is MovieLoaded) {
+            final double exactWidht = size.width * .90;
+            return Container(
+              color: etiyaCorporateMain.withAlpha(200),
+              child: ListView.builder(
+                itemBuilder: ((context, index) {
+                  MovieModel item = state.movies[index];
+                  return MovieCard(item, index, exactWidht);
+                }),
+                itemCount: state.movies.length,
+              ),
+            );
+          } else {
+            return Container(
+              color: movieCardGreyDark,
+              height: size.height,
+              width: size.width,
+              child: ListView.builder(
+                itemBuilder: ((context, index) => MovieCardPlaceholder(index)),
+                itemCount: 5,
+                physics: const NeverScrollableScrollPhysics(),
+              ),
+            );
+          }
+        }),
       ),
     );
   }

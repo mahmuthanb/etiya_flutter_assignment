@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
-import '../../data/constans_data.dart';
+import '../../data/constants.dart';
 
 class InfoWidget extends StatelessWidget {
   const InfoWidget(this.iconData, this.message, {Key? key}) : super(key: key);

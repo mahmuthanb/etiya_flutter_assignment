@@ -1,4 +1,4 @@
-import 'package:etiya_flutter_assignment/data/constans_data.dart';
+import 'package:etiya_flutter_assignment/data/constants.dart';
 import 'package:flutter/material.dart';
 
 ThemeData lightTheme = ThemeData.light().copyWith(
