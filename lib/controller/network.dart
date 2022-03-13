@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:etiya_flutter_assignment/model/single_movie_model.dart';
 
 import '../data/api_provider.dart';
 import '../model/movie_model.dart';
@@ -11,16 +12,34 @@ class NetworkService {
     "api_key": apiKey,
   };
 
-  Future<List<MovieModel>> fetchMovies(String path) async {
-    List<MovieModel> responseList = [];
+  Dio defaultDio() {
     dio.options.baseUrl = baseUrl + movieUrl;
     dio.options.queryParameters = queryParameters;
-    final Response response = await dio.get(path);
+    return dio;
+  }
+
+  Future<List<MovieModel>> fetchMovies(String path) async {
+    List<MovieModel> responseList = [];
+    final Response response = await defaultDio().get(path);
     if (response.statusCode == 200) {
       // Succesfull response
       var decodedResponse = MovieResponseModel.fromJson(response.data);
       responseList = decodedResponse.results;
       return responseList;
+    } else {
+      // If response status is not 200, that means there is a problem with request
+      throw Exception(response.statusMessage);
+    }
+  }
+
+  Future<SingleMovieModel> fetchSingleMovie(String id) async {
+    late SingleMovieModel singleMovie;
+    final Response response = await defaultDio().get("/" + id);
+    if (response.statusCode == 200) {
+      // Succesfull response
+      var decodedResponse = SingleMovieModel.fromJson(response.data);
+      singleMovie = decodedResponse;
+      return singleMovie;
     } else {
       // If response status is not 200, that means there is a problem with request
       throw Exception(response.statusMessage);

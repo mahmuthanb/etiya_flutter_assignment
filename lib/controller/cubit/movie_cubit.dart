@@ -11,11 +11,11 @@ part 'movie_state.dart';
 class MovieCubit extends Cubit<MovieState> {
   final NetworkService networkService;
   MovieCubit({required this.networkService}) : super(MovieLoading()) {
-    getAllImages().then((value) {
+    getAllMovies().then((value) {
       emit(MovieLoaded(movies: value));
     });
   }
-  Future<List<MovieModel>> getAllImages() async {
+  Future<List<MovieModel>> getAllMovies() async {
     List<MovieModel> result = [];
     result = await networkService
         .fetchMovies("/popular")

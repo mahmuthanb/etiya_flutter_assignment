@@ -1,52 +1,22 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:etiya_flutter_assignment/controller/cubit/movie_cubit.dart';
-import 'package:etiya_flutter_assignment/controller/network.dart';
+import 'package:etiya_flutter_assignment/controller/router/router.gr.dart';
 import 'package:etiya_flutter_assignment/data/theme_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'controller/cubit/internet_cubit.dart';
-import 'view/widgets/info_widget.dart';
-import 'view/home_page.dart';
 
 void main() {
-  runApp(const EtiyaFlutterAssignment());
+  runApp(EtiyaFlutterAssignment());
 }
 
 class EtiyaFlutterAssignment extends StatelessWidget {
-  const EtiyaFlutterAssignment({Key? key}) : super(key: key);
+  EtiyaFlutterAssignment({Key? key}) : super(key: key);
 
+  final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-    final Connectivity connectivity = Connectivity();
-    final NetworkService networkService = NetworkService();
-    return MaterialApp(
-      title: 'ETIYA Flutter Assigment',
-      theme: lightTheme,
-      debugShowCheckedModeBanner: false,
-      home: MultiBlocProvider(
-        providers: [
-          BlocProvider<InternetCubit>(
-            create: (context) => InternetCubit(connectivity: connectivity),
-          ),
-          BlocProvider<MovieCubit>(
-            create: (context) => MovieCubit(networkService: networkService),
-          )
-        ],
-        child: BlocBuilder<InternetCubit, InternetState>(
-          builder: (context, state) {
-            if (state is InternetConnected &&
-                state.connectivityResult != ConnectivityResult.none) {
-              return const Scaffold(
-                body: HomePage(),
-              );
-            } else if (state is InternetDisconnected) {
-              return const InfoWidget(Icons.dangerous, "disconnected");
-            }
-            return const InfoWidget(Icons.info, "waiting internet connection");
-          },
-        ),
-      ),
-    );
+    return MaterialApp.router(
+        title: 'ETIYA Flutter Assigment',
+        theme: lightTheme,
+        debugShowCheckedModeBanner: false,
+        routeInformationParser: _appRouter.defaultRouteParser(),
+        routerDelegate: _appRouter.delegate());
   }
 }

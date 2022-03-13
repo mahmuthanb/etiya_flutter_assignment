@@ -6,6 +6,7 @@ ThemeData lightTheme = ThemeData.light().copyWith(
   textTheme: const TextTheme(
     bodyText1: TextStyle(color: Colors.white, fontSize: 25),
   ),
+  scaffoldBackgroundColor: etiyaCorporateMain,
   inputDecorationTheme: InputDecorationTheme(
     enabledBorder: customOutlineInputBorder(Colors.grey.shade700),
     focusedBorder: customOutlineInputBorder(Colors.grey),

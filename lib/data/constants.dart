@@ -28,6 +28,11 @@ const BoxDecoration radiusBoxDecoration = BoxDecoration(
   shape: BoxShape.rectangle,
   borderRadius: BorderRadius.all(Radius.circular(radiusXS)),
 );
+const BoxDecoration radiusBoxDecorationLG = BoxDecoration(
+  color: etiyaCorporateMain,
+  shape: BoxShape.rectangle,
+  borderRadius: BorderRadius.all(Radius.circular(radiusLG)),
+);
 
 // -------------------------------------------------
 // Custom Spacing Data for Margins and Paddings
