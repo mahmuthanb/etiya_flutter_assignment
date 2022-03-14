@@ -24,6 +24,8 @@ class SingleMovieCubit extends Cubit<SingleMovieState> {
     }).then((value) {
       emit(SingleMovieLoaded(data: value));
       // return value;
+    }).onError((error, stackTrace) {
+      emit(SingleMovieFailed(message: "An error occured"));
     });
   }
 }

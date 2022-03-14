@@ -23,14 +23,24 @@ const LinearGradient etiyaLinearGradient = LinearGradient(
   end: Alignment.bottomRight,
 );
 
+TextStyle headerTextStyle = TextStyle(
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
+  color: Colors.grey.shade300,
+  letterSpacing: 2,
+  shadows: const [Shadow(color: Colors.red, offset: Offset(2, 2))],
+);
+
 const BoxDecoration radiusBoxDecoration = BoxDecoration(
   color: etiyaCorporateMain,
-  shape: BoxShape.rectangle,
   borderRadius: BorderRadius.all(Radius.circular(radiusXS)),
+);
+const BoxDecoration radiusBoxDecorationSM = BoxDecoration(
+  color: etiyaCorporateMain,
+  borderRadius: BorderRadius.all(Radius.circular(radiusSM)),
 );
 const BoxDecoration radiusBoxDecorationLG = BoxDecoration(
   color: etiyaCorporateMain,
-  shape: BoxShape.rectangle,
   borderRadius: BorderRadius.all(Radius.circular(radiusLG)),
 );
 

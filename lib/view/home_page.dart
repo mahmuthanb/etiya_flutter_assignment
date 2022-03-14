@@ -1,7 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:etiya_flutter_assignment/controller/cubit/internet_cubit.dart';
 import 'package:etiya_flutter_assignment/controller/cubit/movie_cubit.dart';
-import 'package:etiya_flutter_assignment/controller/cubit/single_movie_cubit.dart';
 import 'package:etiya_flutter_assignment/controller/network.dart';
 import 'package:etiya_flutter_assignment/view/movie_list.dart';
 import 'package:etiya_flutter_assignment/view/widgets/info_widget.dart';

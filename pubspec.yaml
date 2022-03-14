@@ -12,14 +12,17 @@ dependencies:
   animated_text_kit: ^4.2.1
   auto_route: ^3.2.4
   auto_route_generator: ^3.2.3
+  bloc_test: ^9.0.3
   cached_network_image: ^3.2.0
   connectivity_plus: ^2.2.1
   cupertino_icons: ^1.0.2
   dio: ^4.0.4
+  equatable: ^2.0.3
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
   google_fonts: ^2.3.1
+  intl: ^0.17.0
   json_annotation: ^4.4.0
   json_serializable: ^6.1.5
   marquee: ^2.2.1

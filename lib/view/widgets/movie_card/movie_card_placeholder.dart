@@ -115,19 +115,22 @@ class MovieCardLoadingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Container(
-      color: movieCardGreyDark,
-      height: size.height,
-      width: size.width,
-      padding: EdgeInsets.only(
-        left: size.width * .025,
-        right: size.width * .025,
-        top: size.width * .025,
-      ),
-      child: ListView.builder(
-        itemBuilder: ((context, index) => MovieCardPlaceholder(index)),
-        itemCount: 5,
-        physics: const NeverScrollableScrollPhysics(),
+    return Scaffold(
+      appBar: AppBar(),
+      body: Container(
+        color: movieCardGreyDark,
+        height: size.height,
+        width: size.width,
+        padding: EdgeInsets.only(
+          left: size.width * .025,
+          right: size.width * .025,
+          top: size.width * .025,
+        ),
+        child: ListView.builder(
+          itemBuilder: ((context, index) => MovieCardPlaceholder(index)),
+          itemCount: 5,
+          physics: const NeverScrollableScrollPhysics(),
+        ),
       ),
     );
   }
