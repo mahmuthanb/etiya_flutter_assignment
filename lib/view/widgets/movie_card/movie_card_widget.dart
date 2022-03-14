@@ -80,37 +80,38 @@ class MovieCard extends StatelessWidget {
                     item.originalLanguage == "en"
                         ? item.title
                         : item.originalTitle,
-                    style: TextStyle(
-                      color: Colors.grey.shade900,
-                    ),
+                    style: headerTextStyle.copyWith(
+                        color: Colors.grey.shade900, fontSize: 14),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Container(
-                        decoration: radiusBoxDecorationLG.copyWith(
-                          color: const Color(0xFFedae02),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: spaceSM,
-                          vertical: spaceXS,
-                        ),
-                        child: Text(
-                          "IMDB " + item.voteAverage.toString(),
-                          style: const TextStyle(
-                            color: movieCardGreyDark,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.end,
+                  //   children: [
+                  //     Container(
+                  //       decoration: radiusBoxDecorationLG.copyWith(
+                  //         color: const Color(0xFFedae02),
+                  //       ),
+                  //       padding: const EdgeInsets.symmetric(
+                  //         horizontal: spaceSM,
+                  //         vertical: spaceXS,
+                  //       ),
+                  //       child: Text(
+                  //         "IMDB " + item.voteAverage.toString(),
+                  //         style: const TextStyle(
+                  //           color: movieCardGreyDark,
+                  //           fontWeight: FontWeight.bold,
+                  //         ),
+                  //       ),
+                  //     )
+                  //   ],
+                  // ),
                   Text(
                     item.overview,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
-                    maxLines: 3,
+                    maxLines: 7,
                     style: const TextStyle(
                       color: Colors.black,
                     ),

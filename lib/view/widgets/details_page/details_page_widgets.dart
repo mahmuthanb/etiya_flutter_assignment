@@ -29,6 +29,19 @@ class MovieDetailPageWidget extends StatelessWidget {
             ),
             background: CachedNetworkImage(
               imageUrl: itemPosterUrl(data.backdropPath!),
+              placeholder: (context, imgUrl) => Container(
+                decoration: radiusBoxDecoration,
+              ),
+              errorWidget: (context, url, error) => Container(
+                decoration: radiusBoxDecoration,
+                child: Center(
+                  child: Icon(
+                    Icons.error,
+                    color: movieCardGrey,
+                    size: size.width * .1,
+                  ),
+                ),
+              ),
             ),
             collapseMode: CollapseMode.parallax,
             centerTitle: true,
